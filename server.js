@@ -26,8 +26,15 @@ app.use(logger("dev"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(express.static("public"));
+
+// ====================================================
+// Connect To MongoDB
+// ====================================================
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
 
 // ====================================================
 // Set Up Handlebars
@@ -40,6 +47,25 @@ app.set("view engine", "handlebars");
 // ====================================================
 // Routes
 // ====================================================
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.get('/saved', (req, res) => {
+    res.render('saved');
+});
+
+app.get('/scrape', (req, res) => {
+
+});
+
+app.get('/articles', (req, res) => {
+
+});
+
+app.get('articles/:id', (req, res) => {
+
+});
 
 // ====================================================
 // Listening
