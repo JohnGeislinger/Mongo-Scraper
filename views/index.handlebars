@@ -21,6 +21,7 @@
         </ul>
     </div>
 </nav>
+
 <!-- Jumbotron -->
 <div class="jumbotron text-center">
     <div class="overlay"></div>
@@ -30,10 +31,39 @@
         <p>New York Times Edition</p>
     </div>
 </div>
+
 <!-- Container -->
 <div class="container-fluid article-container">
     <!-- Scraped Article Cards -->
+    <div class=row>
+        <div class="col-12">
+            {{#if articles}}
+            {{#each articles}}
+                <div class="card w-90">
+                    <div class="card-header text-white bg-primary">
+                        <a href={{link}} target="_blank" class="text-white">
+                            <h2>{{title}}</h2>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{summary}}
+                        </p>
+                        <button id="{{_id}}" class="btn btn-primary save-btn">Save Article</button>
+                    </div>
+                </div>
+            {{/each}}
+            {{else}}
+                <div class="card text-white bg-warning w-90 p-1">
+                    <div class="card-body text-center">
+                        Uh oh. Looks like we don't have any new articles
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
 </div>
+
 <!-- Footer -->
 <footer class="footer">
     <div class="container">

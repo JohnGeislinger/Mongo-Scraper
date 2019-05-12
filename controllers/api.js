@@ -1,7 +1,7 @@
 // ====================================================
 // Dependencies
 // ====================================================
-const express = ("express");
+const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
